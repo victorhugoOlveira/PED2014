@@ -22,10 +22,10 @@ public class Exercicio08ComArrays {
 			System.out.println("Digite o Salário do Funcionário: ");
 			salario[cont] = in.nextDouble();
 
-			System.out.println("Digite o o tempo de serviço na empresa: ");
+			System.out.println("Digite o o tempo de Serviço na Empresa: ");
 			anos[cont] = in.nextInt();
 
-			System.out.println("Digite a quantidade de filhos: ");
+			System.out.println("Digite a quantidade de Filhos: ");
 			quantidadeFilhos[cont] = in.nextInt();
 
 			valoUmPorcento[cont] = (salario[cont] / 100);
@@ -37,6 +37,7 @@ public class Exercicio08ComArrays {
 					   + ((valoUmPorcento[cont] * 3) * quantidadeFilhos[cont]);
 			
 			System.out.println("O salário final do Funcionário é: " + valorFinal);
+			System.out.println("O aumento foi de R$ " + ((salario[cont] - valorFinal)*-1) + ".");
 
 		}
 
