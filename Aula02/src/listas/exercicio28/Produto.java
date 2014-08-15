@@ -5,15 +5,15 @@ public class Produto {
 	public String nome;
 	public double valor;
 	
-	public Double valorFrete () {
+	public double valorFrete () {
 		return ((this.valor / 100) * 3.5);
 	}
 	
-	public Double valorComissao () {
+	public double valorComissao () {
 		return ((this.valor / 100) * 5);
 	}
 	
-	public Double valorFinal () {
+	public double valorFinal () {
 		return this.valor + this.valorFrete() + valorComissao();
 	}
 }

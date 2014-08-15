@@ -7,6 +7,8 @@ public class Exercicio28 {
 
 	public static void main (String[] args) {
 		
+		UtilPed uped = new UtilPed();
+		
 		boolean receberMaisProdutos = true;
 
 		while (receberMaisProdutos) {
