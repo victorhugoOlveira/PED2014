@@ -1,6 +1,9 @@
 package listas.exercicio28List;
 
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import listas.exercicio28.Produto;
 import util.UtilPed;
 
@@ -23,16 +26,37 @@ public class Exercicio28List {
 			produto.valor = UtilPed.in.nextDouble();
 			
 			listaDeProdutos.add(produto);
-			
-			if (produto.valor < 1)
-				receberMaisProdutos = false;
-			
+		
+			UtilPed.out("Deseja incluir mais Produtos ?  Se sim, tecle 's': ");
+			receberMaisProdutos = UtilPed.in.next().equalsIgnoreCase("s");
 		}
 		
-		Produto prodParaAlteracao = listaDeProdutos.get(0);
-		prodParaAlteracao.nome = "Nome alterado";
+		boolean removerMaisProdutos = false;
+		UtilPed.out("Deseja remover produtos ? Se sim, tecle 's': ");
 		
-		listaDeProdutos.get(1).nome = "Nome alterado 2";
+		//if (UtilPed.in.next().equalsIgnoreCase("s"))
+		//	removerMaisProdutos = true;
+		
+		//if (UtilPed.in.next().equalsIgnoreCase("s") == true)
+		//	removerMaisProdutos = true;
+		
+		removerMaisProdutos = UtilPed.in.next().equalsIgnoreCase("s");
+		
+		while (removerMaisProdutos) {
+			
+			UtilPed.out(" --- Lista de Produtos --- ");
+			for (Produto produtoRemover : listaDeProdutos) {
+				UtilPed.out(listaDeProdutos.indexOf(produtoRemover) + " - " + produtoRemover.nome);
+			}
+			
+			UtilPed.out("Digite a posição do Produto que deseja remover: ");
+			int posRemover = UtilPed.in.nextInt();
+			
+			listaDeProdutos.remove(posRemover);
+			
+			UtilPed.out("Deseja remover mais Produtos ? Se sim, tecle 's': ");
+			removerMaisProdutos = UtilPed.in.next().equalsIgnoreCase("s");
+		}
 		
 		for (Produto produtoDoFor : listaDeProdutos) {
 			UtilPed.out("Produto: " + produtoDoFor.nome);
@@ -44,5 +68,8 @@ public class Exercicio28List {
 		}
 		
 		UtilPed.out("** Saindo do Programa **");
+		
+		JOptionPane.showMessageDialog(null, "Obrigado, volte sempre !! =D", "Obrigado", 2);
+		
 	}
 }
