@@ -28,6 +28,18 @@ public class Exercicio28List {
 			listaDeProdutos.add(produto);
 		
 			UtilPed.out("Deseja incluir mais Produtos ?  Se sim, tecle 's': ");
+			
+//			opção de resolução 01
+//			String resposta = UtilPed.in.next();
+//			if (resposta.equalsIgnoreCase("s")) {
+//				receberMaisProdutos = true;
+//			}
+			
+//			opção de resolução 02
+//			String resposta = UtilPed.in.next();
+//			receberMaisProdutos = resposta.equalsIgnoreCase("s");
+			
+//			opção de resolução 03
 			receberMaisProdutos = UtilPed.in.next().equalsIgnoreCase("s");
 		}
 		
@@ -58,18 +70,20 @@ public class Exercicio28List {
 			removerMaisProdutos = UtilPed.in.next().equalsIgnoreCase("s");
 		}
 		
+		String saida = "";
+		
 		for (Produto produtoDoFor : listaDeProdutos) {
-			UtilPed.out("Produto: " + produtoDoFor.nome);
-			UtilPed.out("* Valor do Produto: " + produtoDoFor.valor);
-			UtilPed.out("* Valor do Frete: " + produtoDoFor.valorFrete());
-			UtilPed.out("* Valor da Comissão: " + produtoDoFor.valorComissao());
-			UtilPed.out("* Valor FINAL: " + produtoDoFor.valorFinal());
-			UtilPed.out(" ---------------------------- ");
+			saida += "Produto: " + produtoDoFor.nome + "\n";
+			saida += "* Valor do Produto: " + produtoDoFor.valor + "\n";
+			saida += "* Valor do Frete: " + produtoDoFor.valorFrete() + "\n";
+			saida += "* Valor da Comissão: " + produtoDoFor.valorComissao() + "\n";
+			saida += "* Valor FINAL: " + produtoDoFor.valorFinal() + "\n";
+			saida += " ---------------------------- " + "\n";
 		}
 		
 		UtilPed.out("** Saindo do Programa **");
 		
-		JOptionPane.showMessageDialog(null, "Obrigado, volte sempre !! =D", "Obrigado", 2);
+		JOptionPane.showMessageDialog(null, saida + " \n \n Obrigado, volte sempre !! =D", "Obrigado", 2);
 		
 	}
 }

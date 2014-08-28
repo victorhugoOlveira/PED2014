@@ -9,8 +9,9 @@ public class Produto {
 		return ((this.valor / 100) * 3.5);
 	}
 	
+	
 	public double valorComissao () {
-		return ((this.valor / 100) * 5);
+		return (((this.valor + this.valorFrete()) / 100) * 5);
 	}
 	
 	public double valorFinal () {
