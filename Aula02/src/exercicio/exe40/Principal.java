@@ -15,21 +15,24 @@ public class Principal {
 		int qntPessoasMais60 = programaPrincipal.numeroPessoasPorIdade(pessoas, 60);
 		int qntPessoasMais30 = programaPrincipal.numeroPessoasPorIdade(pessoas, 30);
 		
-		double perc60 = (((double) qntPessoasMais60 / qntPessoasAmostra) * 100);
-		double perc30 = (((double) qntPessoasMais30 / qntPessoasAmostra) * 100);
+		double perc60 = programaPrincipal.calculaPorcentagem(qntPessoasAmostra, qntPessoasMais60);
+		double perc30 = programaPrincipal.calculaPorcentagem(qntPessoasAmostra, qntPessoasMais30);
 		
 		System.out.println("A porcentagem de pessoas com mais de 60 anos é " + perc60);
 		System.out.println("A porcentagem de pessoas com mais de 30 anos é " + perc30);
 		
 	}
 	
-	public ArrayList<Pessoa> popularArrayRandom () {
+	public double calculaPorcentagem (int qntAmostra, int qntPessoas) {
+		return ((double) qntPessoas / qntAmostra) * 100; 
+	}
+	
+	public ArrayList<Pessoa> popularArrayValorRandom (int qnt) {
 		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 		Random r = new Random();
 		
-		for (int i = 0; i < 400; i++) {
+		for (int i = 0; i < qnt; i++) {
 			Pessoa pessoa = new Pessoa();
-			//pessoa.idade = i;
 			pessoa.idade = r.nextInt(100);	
 			
 			pessoas.add(pessoa);
@@ -53,12 +56,12 @@ public class Principal {
 	}
 	
 	public int numeroPessoasPorIdade (ArrayList<Pessoa> pessoas, int idade) {
-		int qntPessoasMais60 = 0;
+		int qntPessoas = 0;
 		for (Pessoa p : pessoas) {
 			if (p.idade > idade)
-				qntPessoasMais60++;
+				qntPessoas++;
 		}
-		return qntPessoasMais60;
+		return qntPessoas;
 	}
 	
 }
